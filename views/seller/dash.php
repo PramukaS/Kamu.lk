@@ -12,22 +12,22 @@
 </head>
 <body>
     <div class="seller-dashboard">
-        <?php include('dash_include/nav.php'); ?>
+        <?php include('dash-include/nav.php'); ?>
         <div class="content">
             <div class="container">
-                <a href="dash_include/view_order.php" class="card" id="card1" style="display: block;">
+                <a href="dash-include/view-order" class="card" id="card1" style="display: block;">
                  <i class="fas fa-sort-amount-up-alt"></i>
                     <div class="container">
                         <h4><b> Orders</br>3</b ></h4>
                     </div>
                 </a>
-                <a href="dash_include/view_food_item.php" class="card" id="card2" style="display: block;">
+                <a href="dash-include/view-food-item" class="card" id="card2" style="display: block;">
                     <i class="fas fa-cloud-meatball"></i>
                     <div class=" container">
                         <h4><b>Food Items</br>12</b></h4>
                     </div>
                  </a>
-                <a href="dash_include/order_history.php" class="card" id="card3" style="display: block;">
+                <a href="dash-include/order-history" class="card" id="card3" style="display: block;">
                     <i class="fas fa-history"></i>
                     <div class="container">
                         <h4><b>Order Histroy</br>22</b></h4>
