@@ -14,7 +14,15 @@ $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($di
 $routes = [
   'user/add-post' => 'UserController@addPost',
   'user/request-meal-plan' => 'UserController@requestMealPlan',
-  'seller/dash' => 'SellerController@Dash',
+  'seller/dash' => 'SellerController@dash',
+  'seller/dash-include/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
+  'seller/dash-include/add-food-item' => 'SellerController@addFoodItem',
+  'seller/dash-include/edit-food-item' => 'SellerController@editFoodItem',
+  'seller/dash-include/view-food-item' => 'SellerController@viewFoodItem',
+  'seller/dash-include/view-order' => 'SellerController@viewOrder',
+  'seller/dash-include/order-history' => 'SellerController@orderHistory',
+  'seller/dash-include/contact-admin' => 'SellerController@contactAdmin',
+
 ];
 
 $found = false;
