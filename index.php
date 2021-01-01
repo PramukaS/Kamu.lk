@@ -14,6 +14,8 @@ $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($di
 $routes = [
   'user/add-post' => 'UserController@addPost',
   'user/request-meal-plan' => 'UserController@requestMealPlan',
+
+  //seller
   'seller/dash' => 'SellerController@dash',
   'seller/dash-include/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
   'seller/dash-include/add-food-item' => 'SellerController@addFoodItem',
@@ -22,6 +24,15 @@ $routes = [
   'seller/dash-include/view-order' => 'SellerController@viewOrder',
   'seller/dash-include/order-history' => 'SellerController@orderHistory',
   'seller/dash-include/contact-admin' => 'SellerController@contactAdmin',
+
+  //driver
+  'driver/dash' => 'DriverController@dash',
+  'driver/dash-include/accept-orders' => 'DriverController@acceptOrders',
+  'driver/dash-include/contact-admin' => 'DriverController@contactAdmin',
+  'driver/dash-include/delivery-history' => 'DriverController@deliveryHistory',
+  'driver/dash-include/earnings' => 'DriverController@earnings',
+  'driver/dash-include/edit-profile' => 'DriverController@editProfile',
+  'driver/dash-include/update-location' => 'DriverController@updateLocation',
 
 ];
 
