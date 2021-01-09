@@ -34,6 +34,15 @@ $routes = [
   'driver/dash-include/edit-profile' => 'DriverController@editProfile',
   'driver/dash-include/update-location' => 'DriverController@updateLocation',
 
+  //main controllers
+  'main/index' => 'MainController@index',
+  'main/about-us' => 'MainController@aboutUs',
+  'main/blog' => 'MainController@blog',
+  'main/restaurant' => 'MainController@restaurant'
+  
+
+
+
 ];
 
 $found = false;
