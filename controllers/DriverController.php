@@ -8,34 +8,39 @@ class DriverController {
     $view = new View("driver/dash");
   }
 
-  // driver/dash-include/accept-orders
+  // driver/accept-orders
   public function acceptOrders() {
-    $view = new View("driver/dash-include/accept-orders");
+    $view = new View("driver/accept-orders");
   }
 
-  // driver/dash-include/contact-admin
+  // driver/contact-admin
   public function contactAdmin() {
-    $view = new View("driver/dash-include/contact-admin");
+    $view = new View("driver/contact-admin");
   }
 
-  // driver/dash-include/delivey-history
+  // driver/delivey-history
   public function deliveryHistory() {
-    $view = new View("driver/dash-include/delivery-history");
+    $view = new View("driver/delivery-history");
   }
 
-  // driver/dash-include/earnings
+  // driver/earnings
   public function earnings() {
-    $view = new View("driver/dash-include/earnings");
+    $view = new View("driver/earnings");
   }
 
-  // driver/dash-include/edit-profile
+  // driver/edit-profile
   public function editProfile() {
-    $view = new View("driver/dash-include/edit-profile");
+    $view = new View("driver/edit-profile");
   }
 
-  // driver/dash-include/update-location
+  // driver/my-profile
+  public function myProfile() {
+    $view = new View("driver/my-profile");
+  }
+
+  // driver/update-location
   public function updateLocation() {
-    $view = new View("driver/dash-include/update-location");
+    $view = new View("driver/update-location");
   }
 
 

@@ -8,39 +8,39 @@ class SellerController {
     $view = new View("seller/dash");
   }
 
-  // seller/dash-include/edit-restaurant-details
+  // seller/edit-restaurant-details
   public function editRestaurantDetails() {
-    $view = new View("seller/dash-include/edit-restaurant-details");
+    $view = new View("seller/edit-restaurant-details");
   }
 
-  // seller/dash-include/add-food-item
+  // seller/add-food-item
   public function addFoodItem() {
-    $view = new View("seller/dash-include/add-food-item");
+    $view = new View("seller/add-food-item");
   }
 
-  // seller/dash-include/edit-food-item
+  // seller/edit-food-item
   public function editFoodItem() {
-    $view = new View("seller/dash-include/edit-food-item");
+    $view = new View("seller/edit-food-item");
   }
 
-  // seller/dash-include/view-food-item
+  // seller/view-food-item
   public function viewFoodItem() {
-    $view = new View("seller/dash-include/view-food-item");
+    $view = new View("seller/view-food-item");
   }
 
-  // seller/dash-include/view-order
+  // seller/view-order
   public function viewOrder() {
-    $view = new View("seller/dash-include/view-order");
+    $view = new View("seller/view-order");
   }
 
-  // seller/dash-include/order-history
+  // seller/order-history
   public function orderHistory() {
-    $view = new View("seller/dash-include/order-history");
+    $view = new View("seller/order-history");
   }
 
-  // seller/dash-include/contact-admin
+  // seller/contact-admin
   public function contactAdmin() {
-    $view = new View("seller/dash-include/contact-admin");
+    $view = new View("seller/contact-admin");
   }
 
 
