@@ -12,7 +12,7 @@ $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($di
 
 // associative arrays
 $routes = [
-  
+
   //seller
   'seller/dash' => 'SellerController@dash',
   'seller/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
@@ -33,6 +33,7 @@ $routes = [
   'driver/edit-profile' => 'DriverController@editProfile',
   'driver/my-profile' => 'DriverController@myProfile',
   'driver/update-location' => 'DriverController@updateLocation',
+
 
 //user
   'user/user-dash' => 'UserController@userDash',
