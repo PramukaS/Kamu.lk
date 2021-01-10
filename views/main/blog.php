@@ -10,7 +10,7 @@
         <div class="container"> 
             <div class="navbar">
                 <div class="logo">
-                    <img class="logo" src="../assets/images/logo.png" alt="logo" width="125px">
+                    <img class="logo" src="../assets/images/logo.png" alt="logo" width="150px">
                 </div>
                 <nav>
                     <ul id="MenuItems">
@@ -18,7 +18,7 @@
                         <li><a href="blog.php">Blog</a></li>
                         <li><a href="restaurant">Restaurants</a></li>
                         <li><a href="about-us">About Us</a></li>
-                        <li><a href="log.php" class="btn">Login</a></li>
+                        <li><a href="../auth/login" class="btn">Login</a></li>
                     </ul>
                 </nav>
                 <img src="../assets/images/menu.png" class="menu-icon" alt="menu" onclick="menutoggle()">
