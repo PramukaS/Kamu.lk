@@ -17,22 +17,32 @@ $routes = [
 
   //seller
   'seller/dash' => 'SellerController@dash',
-  'seller/dash-include/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
-  'seller/dash-include/add-food-item' => 'SellerController@addFoodItem',
-  'seller/dash-include/edit-food-item' => 'SellerController@editFoodItem',
-  'seller/dash-include/view-food-item' => 'SellerController@viewFoodItem',
-  'seller/dash-include/view-order' => 'SellerController@viewOrder',
-  'seller/dash-include/order-history' => 'SellerController@orderHistory',
-  'seller/dash-include/contact-admin' => 'SellerController@contactAdmin',
+  'seller/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
+  'seller/add-food-item' => 'SellerController@addFoodItem',
+  'seller/edit-food-item' => 'SellerController@editFoodItem',
+  'seller/view-food-item' => 'SellerController@viewFoodItem',
+  'seller/view-order' => 'SellerController@viewOrder',
+  'seller/order-history' => 'SellerController@orderHistory',
+  'seller/contact-admin' => 'SellerController@contactAdmin',
 
   //driver
   'driver/dash' => 'DriverController@dash',
-  'driver/dash-include/accept-orders' => 'DriverController@acceptOrders',
-  'driver/dash-include/contact-admin' => 'DriverController@contactAdmin',
-  'driver/dash-include/delivery-history' => 'DriverController@deliveryHistory',
-  'driver/dash-include/earnings' => 'DriverController@earnings',
-  'driver/dash-include/edit-profile' => 'DriverController@editProfile',
-  'driver/dash-include/update-location' => 'DriverController@updateLocation',
+  'driver/accept-orders' => 'DriverController@acceptOrders',
+  'driver/contact-admin' => 'DriverController@contactAdmin',
+  'driver/delivery-history' => 'DriverController@deliveryHistory',
+  'driver/earnings' => 'DriverController@earnings',
+  'driver/edit-profile' => 'DriverController@editProfile',
+  'driver/my-profile' => 'DriverController@myProfile',
+  'driver/update-location' => 'DriverController@updateLocation',
+
+  //main controllers
+  'main/index' => 'MainController@index',
+  'main/about-us' => 'MainController@aboutUs',
+  'main/blog' => 'MainController@blog',
+  'main/restaurant' => 'MainController@restaurant'
+
+
+
 
   //main controllers
   'main/index' => 'MainController@index',
