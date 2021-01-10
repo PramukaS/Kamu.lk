@@ -12,6 +12,10 @@ class SellerController {
   public function editRestaurantDetails() {
     $view = new View("seller/edit-restaurant-details");
   }
+  // seller/my-profile
+  public function myProfile() {
+    $view = new View("seller/my-profile");
+  }
 
   // seller/add-food-item
   public function addFoodItem() {
