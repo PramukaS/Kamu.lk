@@ -12,8 +12,6 @@ $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($di
 
 // associative arrays
 $routes = [
-  'user/add-post' => 'UserController@addPost',
-  'user/request-meal-plan' => 'UserController@requestMealPlan',
 
   //seller
   'seller/dash' => 'SellerController@dash',
@@ -36,22 +34,20 @@ $routes = [
   'driver/my-profile' => 'DriverController@myProfile',
   'driver/update-location' => 'DriverController@updateLocation',
 
+
+//user
+  'user/user-dash' => 'UserController@userDash',
+  'user/add-post' => 'UserController@addPost',
+  'user/request-meal-plan' => 'UserController@requestMealPlan',
+  'user/contact-administration' => 'UserController@contactAdministration',
+  'user/contact-nutritionist' => 'UserController@contactNutritionist',
+  'user/user-profile' => 'UserController@UserProfile',
+
   //main controllers
   'main/index' => 'MainController@index',
   'main/about-us' => 'MainController@aboutUs',
   'main/blog' => 'MainController@blog',
   'main/restaurant' => 'MainController@restaurant'
-
-
-
-
-  //main controllers
-  'main/index' => 'MainController@index',
-  'main/about-us' => 'MainController@aboutUs',
-  'main/blog' => 'MainController@blog',
-  'main/restaurant' => 'MainController@restaurant'
-  
-
 
 
 ];
