@@ -35,7 +35,7 @@ $routes = [
   'driver/update-location' => 'DriverController@updateLocation',
 
 
-//user
+  //user
   'user/user-dash' => 'UserController@userDash',
   'user/add-post' => 'UserController@addPost',
   'user/request-meal-plan' => 'UserController@requestMealPlan',
@@ -47,8 +47,11 @@ $routes = [
   'main/index' => 'MainController@index',
   'main/about-us' => 'MainController@aboutUs',
   'main/blog' => 'MainController@blog',
-  'main/restaurant' => 'MainController@restaurant'
+  'main/restaurant' => 'MainController@restaurant',
 
+  //authentication controller
+  'auth/login' => 'AuthController@login',
+  'auth/signup-user' => 'AuthController@signUpUser'
 
 ];
 
