@@ -13,25 +13,18 @@ class UserController {
   // user/request-meal-plan
   public function requestMealPlan() {
     $view = new View("user/request-meal-plan");
+
   }
 
   // user/add-post
   public function addPost() {
     $view = new View("user/add-post");
   }
-  /*public function addPost() {
-    $view = new View("user/add-post");
-    $model = new Post();
-    $posts = $model->find();
-    $view->assign('posts', $posts);
-  }*/
+  
   public function contactAdministration() {
     $view = new View("user/contact-administration");
   }
-   public function viewPost() {
-    $view = new View("user/add-post");
-  }
-
+   
    public function contactNutritionist() {
     $view = new View("user/contact-nutritionist");
   }

@@ -11,15 +11,43 @@ define('ROOT', __DIR__);
 $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_name)), "?");
 
 // associative arrays
-
 $routes = [
-  //user
+  
+  //seller
+  'seller/dash' => 'SellerController@dash',
+  'seller/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
+  'seller/add-food-item' => 'SellerController@addFoodItem',
+  'seller/edit-food-item' => 'SellerController@editFoodItem',
+  'seller/my-profile' => 'SellerController@myProfile',
+  'seller/view-food-item' => 'SellerController@viewFoodItem',
+  'seller/view-order' => 'SellerController@viewOrder',
+  'seller/order-history' => 'SellerController@orderHistory',
+  'seller/contact-admin' => 'SellerController@contactAdmin',
+
+  //driver
+  'driver/dash' => 'DriverController@dash',
+  'driver/accept-orders' => 'DriverController@acceptOrders',
+  'driver/contact-admin' => 'DriverController@contactAdmin',
+  'driver/delivery-history' => 'DriverController@deliveryHistory',
+  'driver/earnings' => 'DriverController@earnings',
+  'driver/edit-profile' => 'DriverController@editProfile',
+  'driver/my-profile' => 'DriverController@myProfile',
+  'driver/update-location' => 'DriverController@updateLocation',
+
+//user
   'user/user-dash' => 'UserController@userDash',
   'user/add-post' => 'UserController@addPost',
   'user/request-meal-plan' => 'UserController@requestMealPlan',
   'user/contact-administration' => 'UserController@contactAdministration',
   'user/contact-nutritionist' => 'UserController@contactNutritionist',
-    'user/user-profile' => 'UserController@UserProfile',
+  'user/user-profile' => 'UserController@UserProfile',
+
+  //main controllers
+  'main/index' => 'MainController@index',
+  'main/about-us' => 'MainController@aboutUs',
+  'main/blog' => 'MainController@blog',
+  'main/restaurant' => 'MainController@restaurant'
+
 
 ];
 
