@@ -20,6 +20,7 @@ $routes = [
   'seller/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
   'seller/add-food-item' => 'SellerController@addFoodItem',
   'seller/edit-food-item' => 'SellerController@editFoodItem',
+  'seller/my-profile' => 'SellerController@myProfile',
   'seller/view-food-item' => 'SellerController@viewFoodItem',
   'seller/view-order' => 'SellerController@viewOrder',
   'seller/order-history' => 'SellerController@orderHistory',

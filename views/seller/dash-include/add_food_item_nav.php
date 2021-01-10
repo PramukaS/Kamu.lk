@@ -8,7 +8,7 @@
                 <button class="dropbtn"><img  src="../assets/images/seller/seller_icon.png" alt="user" width="50px"></button>
                 <div class="dropdown-content">
                     <a href="my-profile">My Profile</a>
-                    <a href="../logout.php">Log Out</a>
+                    <a href="../../logout.php">Log Out</a>
                 </div>
             </div>
     </div>
@@ -19,8 +19,8 @@
         <li><a href="edit-restaurant-details">Edit Restaurant Details</a></li>
         <li> Food Menu
         <ul style="display: inline;">
-                <li><a href="add-food-item">Add Food Items</a></li>
-                <li><a href="edit_-food-item">Edit Food Items</a></li>            
+                <li><m><a href="add-food-item">Add Food Items</a></m></li>
+                <li><a href="edit-food-item">Edit Food Items</a></li>            
                 <li><a href="view-food-item">View Food Items</a></li>
             </ul>
         </li>
