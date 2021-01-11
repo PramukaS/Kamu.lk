@@ -42,7 +42,7 @@ class AuthController {
               header('location: ../main/index'); 
             }
             else if ($loggedInUser['user_type_id'] == 2) {
-              header('location: ../main/about-us');
+              header('location: ../nutritionist/dashboard');
             }else if ($loggedInUser['user_type_id'] == 3) {
               header('location: ../main/restaurant');
             }
