@@ -34,7 +34,7 @@ $routes = [
   'driver/my-profile' => 'DriverController@myProfile',
   'driver/update-location' => 'DriverController@updateLocation',
 
-  //nutritionist controller
+  //nutritionist 
   'nutritionist/dashboard' => 'NutritionistController@dashboard',
   'nutritionist/food-add' => 'NutritionistController@addFood',
   'nutritionist/food-view' => 'NutritionistController@viewFood',
@@ -44,7 +44,7 @@ $routes = [
   'nutritionist/post-view' => 'NutritionistController@viewPost',
   'nutritionist/contact-admin' => 'NutritionistController@contactAdmin',
   'nutritionist/my-profile' => 'NutritionistController@myProfile',
-  'nutritionist/inbox' => 'NutritionistController@inbox'
+  'nutritionist/inbox' => 'NutritionistController@inbox',
 
   //user
   'user/user-dash' => 'UserController@userDash',
@@ -54,13 +54,13 @@ $routes = [
   'user/contact-nutritionist' => 'UserController@contactNutritionist',
   'user/user-profile' => 'UserController@UserProfile',
 
-  //main controllers
+  //main 
   'main/index' => 'MainController@index',
   'main/about-us' => 'MainController@aboutUs',
   'main/blog' => 'MainController@blog',
   'main/restaurant' => 'MainController@restaurant',
 
-  //authentication controller
+  //authentication
   'auth/login' => 'AuthController@login',
   'auth/signup-user' => 'AuthController@signUpUser'
 
