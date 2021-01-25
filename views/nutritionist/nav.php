@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/nutritionist/nav.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -24,7 +23,7 @@
         </div>
         <nav class="sidebar">
             <ul>
-                <li class="active"><a href="dashboard">Dashboard</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
                 <li>
                     <a href="#" class="food-btn">Food
                         <span class="fas fa-caret-down first"></span>
@@ -74,9 +73,6 @@
             $('nav ul .third').toggleClass("rotate");
         });
 
-        $('nav ul li').click(function(){
-            $(this).addClass("active").siblings().removeClass("active");
-        });
 </script>
 </body>
 </html>
