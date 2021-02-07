@@ -34,10 +34,12 @@ $routes = [
   'driver/my-profile' => 'DriverController@myProfile',
   'driver/update-location' => 'DriverController@updateLocation',
 
-  //nutritionist 
+  //nutritionist controller
   'nutritionist/dashboard' => 'NutritionistController@dashboard',
   'nutritionist/food-add' => 'NutritionistController@addFood',
   'nutritionist/food-view' => 'NutritionistController@viewFood',
+  'nutritionist/food-update' => 'NutritionistController@updateFood',
+  'nutritionist/food-delete' => 'NutritionistController@deleteFood',
   'nutritionist/mealplan-add' => 'NutritionistController@addMealPlan',
   'nutritionist/mealplan-view' => 'NutritionistController@viewMealPlan',
   'nutritionist/post-add' => 'NutritionistController@addPost',
@@ -68,10 +70,10 @@ $routes = [
 ];
 
 $found = false;
-// $request_path_only = explode("?", $url)[0];
+$request_path_only = explode("?", $url)[0];
 
 foreach($routes as $route => $name) {
-  if ($route === $url) {
+  if ($route === $request_path_only) {
     $found = true;
     // UserController@addPost
     $split = explode("@", $name);
