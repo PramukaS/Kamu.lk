@@ -52,7 +52,7 @@
                                 <span class="invalidFeedback">
                                     <?php echo $confirmPasswordError;?>
                                 </span>
-                            <input type="hidden" name="userTypeId" value="2">
+                            <input type="hidden" name="userTypeId" value="3">
                             <input type="submit" value="SignUp"><br>
                         </form>
                     </div>
