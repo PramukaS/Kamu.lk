@@ -45,6 +45,7 @@ $routes = [
   'nutritionist/contact-admin' => 'NutritionistController@contactAdmin',
   'nutritionist/my-profile' => 'NutritionistController@myProfile',
   'nutritionist/inbox' => 'NutritionistController@inbox',
+  'nutritionist/logout' => 'NutritionistController@logout',
 
   //user
   'user/user-dash' => 'UserController@userDash',
