@@ -24,16 +24,21 @@
                         <th>Fat(g)</th>
                         <th colspan="2">Actions</th>
                     </tr>
+                    <?php foreach($foods as $food) { ?>
                     <tr>
-                        <td>Potato</td>
-                        <td>45.98</td>
-                        <td>8</td>
-                        <td>12</td>
-                        <td> <a href=""> <button class="button1">
+                        <td><?php echo $food['foodName'];?></td>
+                        <td><?php echo $food['calories'];?></td>
+                        <td><?php echo $food['protein'];?></td>
+                        <td><?php echo $food['fat'];?></td>
+                        <td> <a href="food-update?id=<?php echo $food ['id'];?>"> <button class="button1">
                             Update</button></a></td>
-                        <td> <a href=""> <button class="button1">
-                            Delete</button></a></td>
+                        <td> 
+                            <form action="food-delete?id=<?php echo $food ['id'];?>" method="POST">
+                                <input type="submit" name="delete" value="Delete" class="button1">
+                            </form>
+                        </td>
                     </tr>
+                    <?php } ?>
                 </table>
         </div>
     </div>
