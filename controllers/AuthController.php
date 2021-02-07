@@ -43,7 +43,6 @@ class AuthController {
             else if ($loggedInUser['user_type_id'] == 2) {
               session_start();
               $_SESSION['loggedin'] = $loggedInUser['user_type_id'];
-
               header('location: ../nutritionist/dashboard');
               die();
             }else if ($loggedInUser['user_type_id'] == 3) {
