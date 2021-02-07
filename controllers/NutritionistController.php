@@ -42,4 +42,8 @@ class NutritionistController {
   public function inbox() {
     $view = new View("nutritionist/inbox");
   }
+
+  public function logout() {
+    $view = new View("nutritionist/logout");
+  }
 }

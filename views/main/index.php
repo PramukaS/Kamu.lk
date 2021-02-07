@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(isset($_SESSION['loggedin']))
+    { 
+        if ($_SESSION['loggedin'] == 2) {
+            header('Location: ../nutritionist/dashboard');
+        }
+        die();
+    } 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

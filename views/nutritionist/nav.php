@@ -16,7 +16,7 @@
                     <button class="dropbtn"><img  src="../assets/images/user.png" alt="user" width="40px"></button>
                         <div class="dropdown-content">
                             <a href="my-profile">My Profile</a>
-                            <a href="../logout.php">Log Out</a>
+                            <a href="logout">Log Out</a>
                         </div>
                 </div>
             </div>
