@@ -1,119 +1,79 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <title>Kamu Nutritionist</title>
     <link rel="stylesheet" href="../assets/css/nutritionist/style.css">
-
+    <link rel="stylesheet" href="../assets/css/nutritionist/food.css">
 </head>
-
 <body>
 <?php include('nav.php'); ?>
     <div class="content">
-        <div class="grid">
-            <div class="mini-reports bg-blue">
-                <div class="l">
-                    <span>10</span>
-                    <span><a href="inbox">Inbox</a></span>
-                </div>
-                <div class="r">
-                    <i class="fa fa-envelope c-blue"></i>
-                </div>
-            </div>
-            <div class="mini-reports bg-green">
-                <div class="l">
-                    <span>1</span>
-                    <span><a href="post-view">Posts</a></span>
-                </div>
-                <div class="r">
-                    <i class="fa fa-map c-green"></i>
-                </div>
-            </div>
-            <div class="mini-reports bg-orange">
-                <div class="l">
-                    <span>10</span>
-                    <span><a href="mealplan-view">Clients</a></span>
-                </div>
-                <div class="r">
-                    <i class="fa fa-users c-orange"></i>
-                </div>
-            </div>
-            <div class="mini-reports bg-red">
-                <div class="l">
-                    <span>100</span>
-                    <span><a href="food-view">Foods</a></span>
-                </div>
-                <div class="r">
-                    <i class="fa fa-tree c-red"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="painel">
-                <div class="painel-header">
-                    <h4 class="painel-title">Today clients</h4>
-                </div>
-                <div class="painel-body">
-                        <table class="zebra">
-                            <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                            <tr>
-                                <td>Chuck Norris</td>
-                                <td>chucknorris@info.com</td>
-                                <td>
-                                    <a href="#" class="btn btn-red"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-green"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-orange"><i class="fa fa-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>john@gmail.com</td>
-                                <td>
-                                    <a href="#" class="btn btn-red"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-green"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-orange"><i class="fa fa-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Frank Underwood</td>
-                                <td>frank@info.com</td>
-                                <td>
-                                    <a href="#" class="btn btn-red"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-green"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-orange"><i class="fa fa-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Michael J</td>
-                                <td>mj@gmail.com</td>
-                                <td>
-                                    <a href="#" class="btn btn-red"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-green"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-orange"><i class="fa fa-edit"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Frank Underwood</td>
-                                <td>frank@info.com</td>
-                                <td>
-                                    <a href="#" class="btn btn-red"><i class="fa fa-trash"></i></a>
-                                    <a href="#" class="btn btn-green"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-orange"><i class="fa fa-edit"></i></a>
-                                </td>
-                            </tr>
-                        </table>
+        <div class="container">
+                <a href="inbox" class="card" id="card1" style="display: block;">
+                    <i class="fa fa-envelope"></i>
+                    <div class="container">
+                        <h3><b> 12 <br/>Inbox</b></h3><br>
                     </div>
-                </div>
+                </a>
+                <a href="food-view" class="card" id="card1" style="display: block;">
+                    <i class="fas fa-carrot"></i>
+                    <div class=" container">
+                        <h3><b> 5 <br/>Total Foods</b></h3><br>
+                    </div>
+                 </a>
+                <a href="mealplan-view" class="card" id="card1" style="display: block;">
+                    <i class="fas fa-weight"></i>
+                    <div class="container">
+                        <h3><b> 3 <br/>Meal Plans</b></h3><br>
+                    </div>
+                </a>
             </div>
-        </div>
+            <br>
+            <br>
+        
+            <div class="card">
+                <div class="food-view">
+                    <h2 style="text-align: left;">Today's Clients </h2><br>
+                    <table id="food">
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th >View</th>
+                        </tr>
+                        <tr>
+                            <td>Sajana Nakandala</td>
+                            <td>sajana98@gmail.com</td>
+                            <td>0774567865</td>
+                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Nisal Liyanage</td>
+                            <td>nisal@gmail.com</td>
+                            <td>0715678895</td>
+                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
+                        </tr>
+                        <tr>
+                            <td>Devin De Silva</td>
+                            <td>devin234@gmail.com</td>
+                            <td>0774567865</td>
+                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>  
     </div>
 </body>
 </html>

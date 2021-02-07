@@ -13,11 +13,10 @@
 <body>
 <?php include('nav.php'); ?>
     <div class="content">
-    <div class="food-view">
-                <h2 style="align-content: center;text-transform: capitalize;">Food Details in 100g </h2><br>
+        <div class="food-view">
+            <h2 style="align-content: center;text-transform: capitalize;">Food Details in 100g </h2><br>
                 <a href="food-add"><button class="button buttonc">Add New Food </button></a><br><br>
                 <table id="food">
-
                     <tr>
                         <th>Food name</th>
                         <th>Calories(kcal)</th>
@@ -36,8 +35,7 @@
                             Delete</button></a></td>
                     </tr>
                 </table>
-
-            </div>
+        </div>
     </div>
 </body>
 </html>

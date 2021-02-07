@@ -6,8 +6,7 @@ require_once ROOT . '/models/Auth.php';
 
 class AuthController {
 
-  public function login() {
-    
+  public function login() {  
     $data = [
         'username' => '',
         'password' => '',
@@ -42,7 +41,11 @@ class AuthController {
               header('location: ../main/index'); 
             }
             else if ($loggedInUser['user_type_id'] == 2) {
+              session_start();
+              $_SESSION['loggedin'] = $loggedInUser['user_type_id'];
+
               header('location: ../nutritionist/dashboard');
+              die();
             }else if ($loggedInUser['user_type_id'] == 3) {
               header('location: ../main/restaurant');
             }

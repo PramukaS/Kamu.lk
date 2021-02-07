@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    if(isset($_SESSION['loggedin']))
+    { 
+        if ($_SESSION['loggedin'] == 2) {
+            header('Location: ../nutritionist/dashboard');
+        }
+        die();
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -45,7 +57,6 @@
                             <input type="submit" value="Login"><br>
                             <a href="#">Forget Password</a><br>
                             <h4>Not registered yet? <a href="../main/index#SignUp">Create an account!</a></h4>
-                         
                         </form>
                     </div>
                 </div>
