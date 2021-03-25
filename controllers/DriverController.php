@@ -1,6 +1,7 @@
 <?php
 
 require_once ROOT  . '/View.php';
+require_once ROOT . "/models/Driver.php";
 
 class DriverController {
   // driver/dash
@@ -10,7 +11,10 @@ class DriverController {
 
   // driver/accept-orders
   public function acceptOrders() {
+    $model = new Driver();
+    $data = $model->getOrders();
     $view = new View("driver/accept-orders");
+    $view->assign("data", $data);
   }
 
   // driver/contact-admin

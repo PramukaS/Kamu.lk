@@ -98,72 +98,32 @@
     </div>
     <div class="content">  
                 
-    <table>
-            <tr>
-                <th>Restaurant Name</th>
-                <th>Order ID</th>
-                <th>Customer Name</th>
-                <th>Customer Contact</th>
-                <th>Customer Location</th>
-                <th>Restaurant Location</th>
-                <th>Payment Type</th>
-                <th>Price(Food+Delivery)</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>Mathara bath kade</td>
-                <td>12</td>
-                <td>Mr.Nishantha</td>
-                <td>077-1234567</td>
-                <td><i><u>Map URL</i></u></td>
-                <td><i><u>Map URL</i></u></td>
-                <td>Cash-On Delivery</td>
-                <td>350.00</td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td>Nelum Hotel</td>
-                <td>145</td>
-                <td>Mr.Kasun</td>
-                <td>077-1593537</td>
-                <td><i><u>Map URL</i></u></td>
-                <td><i><u>Map URL</i></u></td>
-                <td>Card-Payment</td>
-                <td>1450.00</td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td>Wasana Restaurant</td>
-                <td>15</td>
-                <td>Mr.Kumara</td>
-                <td>071-1512347</td>
-                <td><i><u>Map URL</i></u></td>
-                <td><i><u>Map URL</i></u></td>
-                <td>Card-Payment</td>
-                <td>750.00</td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="delivery-history"><button type="button" class="button">Order History</button></a></td>
-            </tr>
+    <table id="dfs">
+                <tr>
+                    <th>Order Id</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                </tr>
+                <?php foreach ($data as $item) { ?>
+                    <tr>
+                        <td><?php echo $item['id'] ?></td>
+                        <td><?php echo $item['customer_name'] ?></td>
+                        <td><?php echo $item['ddate'] ?></td>
+                        <td><?php echo $item['address'] ?></td>
+                        <td><?php echo $item['tele'] ?></td>
+                        
+                    </tr>
+                <?php }
+
+                ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    
+                    <td><a href="add-food-item"><button type="button" class="button">Add Food Items</button></a></td>
+                </tr>
 
             </table>
     </div>    
