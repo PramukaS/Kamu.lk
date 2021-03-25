@@ -4,8 +4,6 @@ $dir_name = dirname($_SERVER['SCRIPT_NAME']);
 
 define('ROOT', __DIR__);
 
-// define('ASSETS_PATH', $dir_name . "/assets/");
-
 // url => http://localhost:81/mvcp/user/add-post
 // url => user/add-post
 $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($dir_name)), "?");
@@ -13,26 +11,40 @@ $url = trim(substr_replace(trim($_SERVER['REQUEST_URI'], '/'), '', 0, strlen($di
 // associative arrays
 $routes = [
 
-  //seller
-  'seller/dash' => 'SellerController@dash',
-  'seller/edit-restaurant-details' => 'SellerController@editRestaurantDetails',
-  'seller/add-food-item' => 'SellerController@addFoodItem',
-  'seller/edit-food-item' => 'SellerController@editFoodItem',
-  'seller/my-profile' => 'SellerController@myProfile',
-  'seller/view-food-item' => 'SellerController@viewFoodItem',
-  'seller/view-order' => 'SellerController@viewOrder',
-  'seller/order-history' => 'SellerController@orderHistory',
-  'seller/contact-admin' => 'SellerController@contactAdmin',
+  //admin Controllers
+  'admin/admin' => 'AdminController@admin',
+  'admin/admin' => 'AdminController@totalUsers',
+  'admin/admin-report' => 'AdminController@adminReport',
+  'admin/admin-report' => 'AdminController@showReport',
+  'admin/user-view' => 'AdminController@viewUser',
+  'admin/user-add' => 'AdminController@addUser',
+  'admin/user-update' => 'AdminController@updateUser',
+  'admin/user-delete' => 'AdminController@deleteUser',
+  'admin/inbox-view' => 'AdminController@viewInbox',
+  'admin/inbox-update' => 'AdminController@updateMessages',
+  'admin/inbox-delete' => 'AdminController@deleteMessages',
+  'admin/income-add' => 'AdminController@addTransaction',
+  'admin/payable-view' => 'AdminController@viewPayable',
+  'admin/recievable-view' => 'AdminController@viewRecievable',
+  'admin/payable-update' => 'AdminController@payableUpdate',
+  'admin/recievable-update' => 'AdminController@recievableUpdate',
+  'admin/payable-delete' => 'AdminController@payableDelete',
+  'admin/recievable-delete' => 'AdminController@recievableDelete',
+  'admin/manage-users' => 'AdminController@manageUsers',
+  'admin/map' => 'AdminController@map',
+  'admin/manage-posts' => 'AdminController@managePosts',
+  'admin/income' => 'AdminController@income',
+  'admin/logout' => 'AdminController@logout',
 
-  //driver
-  'driver/dash' => 'DriverController@dash',
-  'driver/accept-orders' => 'DriverController@acceptOrders',
-  'driver/contact-admin' => 'DriverController@contactAdmin',
-  'driver/delivery-history' => 'DriverController@deliveryHistory',
-  'driver/earnings' => 'DriverController@earnings',
-  'driver/edit-profile' => 'DriverController@editProfile',
-  'driver/my-profile' => 'DriverController@myProfile',
-  'driver/update-location' => 'DriverController@updateLocation',
+  //main controllers
+  'main/index' => 'MainController@index',
+  'main/about-us' => 'MainController@aboutUs',
+  'main/blog' => 'MainController@blog',
+  'main/restaurant' => 'MainController@restaurant',
+
+  //authentication controller
+  'auth/login' => 'AuthController@login',
+  'auth/signup-user' => 'AuthController@signUpUser',
 
   //nutritionist controller
   'nutritionist/dashboard' => 'NutritionistController@dashboard',
@@ -41,32 +53,16 @@ $routes = [
   'nutritionist/food-update' => 'NutritionistController@updateFood',
   'nutritionist/food-delete' => 'NutritionistController@deleteFood',
   'nutritionist/mealplan-add' => 'NutritionistController@addMealPlan',
+  'nutritionist/request-list' => 'NutritionistController@requestList',
   'nutritionist/mealplan-view' => 'NutritionistController@viewMealPlan',
+  'nutritionist/mealplan-delete' => 'NutritionistController@deleteMealPlan',
   'nutritionist/post-add' => 'NutritionistController@addPost',
   'nutritionist/post-view' => 'NutritionistController@viewPost',
   'nutritionist/contact-admin' => 'NutritionistController@contactAdmin',
   'nutritionist/my-profile' => 'NutritionistController@myProfile',
+  'nutritionist/change-password' => 'NutritionistController@changePassword',
   'nutritionist/inbox' => 'NutritionistController@inbox',
-  'nutritionist/logout' => 'NutritionistController@logout',
-
-  //user
-  'user/user-dash' => 'UserController@userDash',
-  'user/add-post' => 'UserController@addPost',
-  'user/request-meal-plan' => 'UserController@requestMealPlan',
-  'user/contact-administration' => 'UserController@contactAdministration',
-  'user/contact-nutritionist' => 'UserController@contactNutritionist',
-  'user/user-profile' => 'UserController@UserProfile',
-
-  //main 
-  'main/index' => 'MainController@index',
-  'main/about-us' => 'MainController@aboutUs',
-  'main/blog' => 'MainController@blog',
-  'main/restaurant' => 'MainController@restaurant',
-
-  //authentication
-  'auth/login' => 'AuthController@login',
-  'auth/signup-user' => 'AuthController@signUpUser'
-
+  'nutritionist/logout' => 'NutritionistController@logout'
 ];
 
 $found = false;
@@ -86,6 +82,8 @@ foreach($routes as $route => $name) {
     call_user_func([$controller, $method]);
   }
 }
+
+
 
 if ($found == false) {
   echo "404 Page Not Found";

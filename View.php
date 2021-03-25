@@ -32,6 +32,5 @@ class View
   {
       extract($this->data);
       include($this->render);
-
   }
 }

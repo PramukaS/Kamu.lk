@@ -30,13 +30,13 @@
                 <a href="food-view" class="card" id="card1" style="display: block;">
                     <i class="fas fa-carrot"></i>
                     <div class=" container">
-                        <h3><b> 5 <br/>Total Foods</b></h3><br>
+                        <h3><b> <?php echo $foodCount;?> <br/>Total Foods</b></h3><br>
                     </div>
                  </a>
                 <a href="mealplan-view" class="card" id="card1" style="display: block;">
                     <i class="fas fa-weight"></i>
                     <div class="container">
-                        <h3><b> 3 <br/>Meal Plans</b></h3><br>
+                        <h3><b> 3 <br/>Sent Plans</b></h3><br>
                     </div>
                 </a>
             </div>
@@ -45,33 +45,27 @@
         
             <div class="card">
                 <div class="food-view">
-                    <h2 style="text-align: left;">Today's Clients </h2><br>
+                    <h2 style="text-align: left;">Request Meal Plans</h2><br>
                     <table id="food">
-                        <tr>
-                            <th>Client Name</th>
-                            <th>Email</th>
-                            <th>Contact Number</th>
-                            <th >View</th>
-                        </tr>
-                        <tr>
-                            <td>Sajana Nakandala</td>
-                            <td>sajana98@gmail.com</td>
-                            <td>0774567865</td>
-                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Nisal Liyanage</td>
-                            <td>nisal@gmail.com</td>
-                            <td>0715678895</td>
-                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Devin De Silva</td>
-                            <td>devin234@gmail.com</td>
-                            <td>0774567865</td>
-                            <td> <a href="mealplan_form.php"> <button class="button1">View</button></a></td>
-                        </tr>
-                    </table>
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Special Notes</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    <?php foreach($plans as $plan) { ?>
+                    <tr>
+                        <td><?php echo $plan['name'];?></td>
+                        <td><?php echo $plan['notes'];?></td>
+                        <td> <a href="mealplan-add?id=<?php echo $plan['request_id'];?>"> <button class="button1">
+                            View</button></a></td>
+                        <td> 
+                            <form action="mealplan-delete?id=<?php echo $plan['request_id'];?>" method="POST">
+                                <input type="submit" name="delete" value="Ignore" class="button1">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </table>
                 </div>
             </div>  
     </div>

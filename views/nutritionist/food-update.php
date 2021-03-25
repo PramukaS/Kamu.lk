@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,88 +13,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <title>Kamu Nutritionist</title>
+    <title>Kamu Nutritionist | Profile</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/main/login.css">
     <link rel="stylesheet" href="../assets/css/nutritionist/style.css">
     <link rel="stylesheet" href="../assets/css/nutritionist/foodForm.css"> 
     <link rel="stylesheet" href="../assets/css/nutritionist/forms.css">
-    <link rel="stylesheet" href="../assets/css/nutritionist/myProfile.css">
 </head>
 
 <body>
 <?php include('nav.php'); ?>
     <div class="content">
-    <div class="food-form form-container">
-                <h2 style="text-transform: capitalize;">My Profile</h2><br>
-                <form class="form" action="" method="post">
-                    <div class="form-group">
-                        <img  src="../assets/images/user.png" width="100px" style="float:right;" alt="user" width="50px"><br><br><br><br><br>
-                    </div>
-                    <div class="form-group">
-                        <label>Username</label><a onclick="myFunction()" href="javascript:void(0);" style="float:right;" value="1">Edit</a> 
-                            <input id = "username" class="form-control" type="text" name="username" size="50"
-                                value="" autocomplete="off" placeholder="Shifna" disabled><br>
-
-                                <div id="myDIV"style="display:none;">
-                                        <label>New Username</label>
-                                        <input id = "hidden" class="form-control" type="text" name="username" size="50"
-                                                value="" placeholder="Enter your New Username" required><br>
-                                        <input class="button" type="submit" name='submit2' value="Submit" size="25">
-                                </div>
-
-                        <label>Password</label><a onclick="myFunction1()" href="javascript:void(0);" style="float:right;">Edit</a> 
-                            <input class="form-control" type="password" name="password" size="3"
-                                    value="" placeholder="***" disabled><br>
-
-                                    <div id="myDIV1"style="display:none;">
-                                        <label>New Password</label>
-                                            <input id = "hidden" class="form-control" type="password" name="password" size="50"
-                                                value="" placeholder="Enter your New Pssword" required><br>
-                                        <label>Re enter Password</label>
-                                            <input id = "hidden" class="form-control" type="password" name="password" size="50"
-                                                value="" placeholder="Re Enter New Pssword" required><br>
-                                        <input class="button" type="submit" name='submit2' value="Submit" size="25">
-                                    </div>
-
-                                <div id="myDIV"style="display:none;">
-                                        <label>New Username</label>
-                                        <input id = "hidden" class="form-control" type="text" name="username" size="50"
-                                                value="" placeholder="Enter your New Username" disabled><br>
-                                </div>
-
-
-                        <label>Name</label><a onclick="myFunction1()" href="javascript:void(0);" style="float:right;">Edit</a> 
-                            <input class="form-control" type="text" step=0.1 name="name" size="50"
-                                    value="" placeholder="Shifna shafeek" disabled><br>
-                        <label>Contact Number</label><a onclick="myFunction1()" href="javascript:void(0);" style="float:right;">Edit</a> 
-                            <input class="form-control" type="number" name="cno" size="10"
-                                    value="" placeholder="0773456467" disabled><br>
-                        <label>Medical Certificate</label><a onclick="myFunction1()" href="javascript:void(0);" style="float:right;">Edit</a> 
-                            <input class="form-control" type="file" name="medical" value="" disabled ><br>                                         
-                    </div>
-                </form>
-            </div>
-    </div>
+        <div class="food-form form-container">
+            <h2 style="text-transform: capitalize;">My Profile</h2><br>
+            <form class="form" action="../nutritionist/my-profile?id=<?php echo $id;?>" method="post"> 
+                <div class="form-group">
+                    <label>Name</label>
+                        <input class="form-control" type="text" name="name" size="50" 
+                            value="<?php echo $name;?>" autocomplete="off" placeholder="Enter Your Name here" required><br>
+                    <label>Username</label>
+                        <input class="form-control" type="text" name="username" size="50"
+                            value="<?php echo $username;?>" placeholder="Enter Your Username here" required><br>
+                                <span class="invalidFeedback">
+                                    <?php echo $usernameError;?>
+                                </span><br>
+                    <label>Email</label>
+                        <input class="form-control" type="text" name="email" size="50"
+                            value="<?php echo $email;?>" placeholder="Enter Your Email here" required><br> 
+                                <span class="invalidFeedback">
+                                    <?php echo $emailError;?>
+                                </span><br>
+                    <label>Medical Registration numberr</label>
+                        <input class="form-control" type="text" name="med_id" size="50"
+                            value="<?php echo $med_id;?>" placeholder="Enter Your Medical ID here" required><br>      
+                    <label>Contact Number</label>
+                        <input class="form-control" type="text" name="tele_no" size="50"
+                            value="<?php echo $tele_no;?>" placeholder="Enter Your Contact number here" required><br>                           
+                </div> 
+                <input class="button" type="submit" name='submit2' value="Update Profile" size="25"><br>
+            </form><br>
+            <a style="margin-left:250px" href="change-password"> <button class="button">Change Password</button></a>
+        </div>
+    </div>                  
 </body>
 </html>
-
-<script>
-        function myFunction() {
-            var x = document.getElementById('myDIV');
-            
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-            } else {
-                x.style.display = 'none';
-            }
-        }
-
-        function myFunction1() {
-            var x = document.getElementById('myDIV1');
-
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-            } else {
-                x.style.display = 'none';
-            }
-        }
-</script>

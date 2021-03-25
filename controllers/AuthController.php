@@ -31,6 +31,12 @@ class AuthController {
         if (empty($data['password'])) {
           $data['passwordError'] = 'Please enter a password.';
         }
+        
+      //check for username
+        $model = new Auth();
+        if(!$model->findUserByUsername($data['username'])){
+          $data['usernameError'] = 'Invalid username.';
+        }
 
         if (empty($data['usernameError']) && empty($data['passwordError'])) {
           $model = new Auth();
@@ -38,11 +44,16 @@ class AuthController {
           
           if($loggedInUser){
             if ($loggedInUser['user_type_id'] == 1) {
-              header('location: ../main/index'); 
+              session_start();
+              $_SESSION['loggedin'] = ['user_type' => 'ADMIN', 'user_id' => $loggedInUser['id'], 'username' => $loggedInUser['username']];
+              header('location: ../admin/admin');
+              die();
             }
             else if ($loggedInUser['user_type_id'] == 2) {
               session_start();
-              $_SESSION['loggedin'] = $loggedInUser['user_type_id'];
+              $_SESSION['loggedin'] = ['user_type' => 'NUTRITIONIST', 'user_id' => $loggedInUser['id'], 'username' => $loggedInUser['username']];
+              // print_r($_SESSION['loggedin']);
+              // die();
               header('location: ../nutritionist/dashboard');
               die();
             }else if ($loggedInUser['user_type_id'] == 3) {
@@ -101,6 +112,12 @@ class AuthController {
           $data['usernameError'] = 'Please enter username.';
         } elseif (!preg_match($nameValidation, $data['username'])) {
           $data['usernameError'] = 'Name can only contain letters and numbers.';
+        }else {
+          //Check if username exists.
+          $model = new Auth();
+          if ($model->findUserByUsername($data['username'])) {
+          $data['usernameError'] = 'Username is already taken.';
+          }
         }
 
         //Validate email

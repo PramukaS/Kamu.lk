@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +24,11 @@
     <div class="content">
         <div class="food-form form-container">
                 <h2 style="text-transform: capitalize;">Contact Administrator</h2><br>
-                <form class="form" action="" method="post">
+                <form class="form" action="../nutritionist/contact-admin?id=<?php echo $_SESSION['loggedin']['user_id'];?>" method="post">
                     <div class="form-group">
-                        <label>Name</label>
-                            <input class="form-control" type="text" name="foodName" size="50"
-                                value="" autocomplete="off" placeholder="Enter Your Name Here" required><br>
-                        <label>Email</label>
-                            <input class="form-control" type="email" name="calories" size="50"
-                                    value="" placeholder="Enter Your Email" required><br>
                         <label>Subject</label>
-                            <input class="form-control" type="text"  name="protein" size="50"
-                                    value="" placeholder="Enter Your Subject" required><br>
+                            <input class="form-control" type="text"  name="subject" size="50"
+                                    value="" autocomplete="off" placeholder="Enter Your Subject" required><br>
                         <label>Message</label>
                         <textarea class="form-control" name="message" placeholder="Message" 
                             style="display: block; border: 2px solid #ccc; width: 95%; padding: 6px; margin: 5px auto;border-radius: 5px;" required></textarea><br>                        

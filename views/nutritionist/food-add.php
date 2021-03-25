@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +31,13 @@
                                 value="" autocomplete="off" placeholder="Enter Food Name Here" required><br>
                         <label>Calories (kcal)</label>
                             <input class="form-control" type="number" step=1 name="calories" size="50"
-                                    value="" placeholder="Enter Calories in 100g" required><br>
+                                    value="" autocomplete="off" placeholder="Enter Calories in 100g" required><br>
                         <label>Protein (g)</label>
                             <input class="form-control" type="number" step=0.1 name="protein" size="50"
-                                    value="" placeholder="Enter Protein in 100g" required><br>
+                                    value="" autocomplete="off" placeholder="Enter Protein in 100g" required><br>
                         <label>Fat (g)</label>
                             <input class="form-control" type="number" step=0.1 name="fat" size="50"
-                                    value="" placeholder="Enter Fat in 100g" required><br>                               
+                                    value="" autocomplete="off" placeholder="Enter Fat in 100g" required><br>                               
                     </div>
                             <span class="invalidFeedback">
                                     <?php echo $Error;?>

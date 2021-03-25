@@ -42,4 +42,16 @@ class Auth extends Database {
       return false;
     }
   }
+
+  public function findUserByUsername($username) {
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $query = $this->con->query($sql);
+    $query->execute();
+
+    if ($query->rowCount() > 0){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

@@ -52,7 +52,7 @@ class Food extends Database {
       $protein = $data['protein'];
       $fat = $data['fat'];
 
-      $sql = "UPDATE food SET id='$id',foodName='$foodName',calories='$calories',protein='$protein',fat='$fat'  WHERE id='$id'";
+      $sql = "UPDATE food SET id='$id',foodName='$foodName',calories='$calories',protein='$protein',fat='$fat' WHERE id='$id'";
         if($this->con->query($sql)){
           return true;
         }else{
@@ -67,5 +67,13 @@ class Food extends Database {
       }else{
         return false;
       }
+    }
+
+    public function countFood(){
+      $sql = "SELECT * FROM food";
+      $query = $this->con->query($sql);
+      $query->execute();
+      $count = $query->rowCount();
+      return $count;
     }
   }

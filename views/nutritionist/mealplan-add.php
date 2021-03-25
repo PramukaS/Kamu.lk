@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['loggedin'])) {
+        header('Location: ../auth/login');
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,69 +16,106 @@
     <link rel="stylesheet" href="../assets/css/nutritionist/style.css">
     <link rel="stylesheet" href="../assets/css/nutritionist/mealForm.css"> 
     <link rel="stylesheet" href="../assets/css/nutritionist/forms.css">
+    <link rel="stylesheet" href="../assets/css/nutritionist/food.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var html = '';
+            html += '<tr>';
+            html += '<td><select name="food_type" id="food_type" class="form-control"><option value="breakfast">Breakfast</option>';
+            html += '<option value="lunch">Lunch</option><option value="dinner">Dinner</option><option value="snacks">Snacks</option>';
+            html += '</select></td><td><select name="cars" id="cars" class="form-control"><option value="volvo">';
+            html += 'rice</option><option value="saab">Potatos</option><option value="mercedes">beans</option><option value="audi"';
+            html += ' >Fruit</option></select></td><td><input class="form-control" type="number" name="foodName" size="10" value=""'; 
+            html += ' autocomplete="off"  required></td><td><input class="form-control" type="number" name="foodName" size="10" value=""'; 
+            html += ' autocomplete="off"  disabled></td><td><input class="button1" type="button" name="remove" id="remove" value="&#8722;"></td></tr>"';
+
+            var x = 1;
+
+            $("#add").click(function(){
+                $("#food1").append(html);
+            });
+
+            $("#food1").on('click','#remove',function(){
+                $(this).closest('tr').remove();
+            });
+
+        });
+    </script>
 </head>
 
 <body>
 <?php include('nav.php'); ?>
     <div class="content">
-        <div class="row">
-                <div class="col-2">
-                    <div class="meal-form form-container">
-                        <h2 style="text-transform: capitalize;">Client Details</h2><br>
-                        <form class="form" action="" method="post">
-                            <div class="form-group">
-                                <label>Client Name</label>
-                                    <input class="form-control" type="text" name="foodName" size="50"
-                                        value="" placeholder="Sajana Nakandala" disabled><br>
-                                <label>Age</label>
-                                    <input class="form-control" type="number" name="calories" size="50"
-                                            value="" placeholder="21" disabled><br>
-                                <label>Height(m)</label>                                        
-                                    <input class="form-control" type="number"  name="protein" size="50"
-                                                value="" placeholder="1.828" disabled><br>
-                                <label>Weight(kg)</label>                                        
-                                    <input class="form-control" type="number" name="protein" size="50"
-                                                value="" placeholder="73" disabled><br>
-                                <label>BMI</label>
-                                    <input class="form-control" type="number"  name="fat" size="50"
-                                            value="" placeholder="20.9" disabled><br>
-                                <label>Physical Exercise level</label>
-                                    <input class="form-control" type="number"  name="fat" size="50"
-                                            value="" placeholder="Active" disabled><br>
-                                <label>Diet Preference</label>
-                                    <input class="form-control" type="number"  name="fat" size="50"
-                                            value="" placeholder="Anything" disabled><br>
-                                <label>Special notes</label>
-                                    <textarea class="form-control" name="message" placeholder="Message" 
-                                        style="display: block; border: 2px solid #ccc; width: 95%; padding: 6px; margin: 5px auto;border-radius: 5px;" disabled></textarea><br>                                
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="meal-form form-container">
-                        <h2 style="text-transform: capitalize;">Meal Plan Details</h2><br>
-                        <form class="form" action="" method="post">
-                            <div class="form-group">
-                                <label>Meal Plan Name</label>
-                                    <input class="form-control" type="text" name="foodName" size="50"
-                                        value="" autocomplete="off" placeholder="Enter Meal Plan Name Here" required><br>
-                                <label>Breakfast</label>
-                                    <textarea class="form-control"></textarea><br>
-                                <label>Lunch</label>
-                                    <textarea class="form-control"></textarea><br>
-                                <label>Dinner</label>
-                                    <textarea class="form-control"></textarea><br>
-                                <label>Snacks</label>
-                                    <textarea class="form-control"></textarea><br><br><br><br><br>                                
-                            </div>
-                            <input class="button" type="submit" name='submit2' value="Send" size="25">
-                            <input class="button" type="reset" value="reset" size="25">
-                        </form>
-                    </div>
-                </div>
-                </div>
-                
+    <div class="food-view">
+            <h2 style="align-content: center;text-transform: capitalize;">Client Details </h2><br>
+                <table id="food">
+                    <tr>
+                        <th>Client name</th>
+                        <th>Age</th>
+                        <th>Height(m)</th>
+                        <th>Weight(kg)</th>
+                        <th>BMI</th>
+                        <th>Physical Exercise level</th>
+                        <th>Diet Preference</th>
+                        <th>Special notes</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo $name;?></td>
+                        <td><?php echo $age;?></td>
+                        <td><?php echo $height;?></td>
+                        <td><?php echo $weight;?></td>
+                        <td><?php echo $bmi;?></td>
+                        <td><?php echo $ex_level;?></td>
+                        <td><?php echo $preference;?></td>
+                        <td><?php echo $notes;?></td>
+                    </tr>
+                </table><br><br>
+
+
+                <h2 style="align-content: center;text-transform: capitalize;">Meal Plan Details </h2><br>
+                <form  action="" method="post">
+                    <label>Meal Plan Name</label>
+                            <input class="form-control" type="text" name="foodName" size="50"
+                                value="" autocomplete="off" placeholder="Enter Meal Plan Name Here" required><br>
+                    <table id="food1">
+                        <tr>
+                            <th>Meal</th>
+                            <th>Food</th>
+                            <th>Quantity</th>
+                            <th>Calories</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>                         
+                                <select name="food_type" id="food_type" class="form-control">
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="snacks">Snacks</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="cars" id="cars" class="form-control">
+                                    <option value="volvo">rice</option>
+                                    <option value="saab">Potatos</option>
+                                    <option value="mercedes">beans</option>
+                                    <option value="audi">Fruit</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" name="foodName" size="10" value="" autocomplete="off"  required>  
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" name="foodName" size="10" value="" autocomplete="off"  disabled>
+                            </td>
+                            <td>
+                                <input class="button1" type="button" name="add" id="add" value="&#43;">
+                            </td>
+                        </tr>
+                    </table><br>
+                </form>
+        </div>           
     </div>
 </body>
 </html>

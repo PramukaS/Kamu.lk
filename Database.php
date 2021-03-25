@@ -20,6 +20,7 @@ class Database {
 
   public function __destruct()
   {
-    
+          
   }
+  
 }

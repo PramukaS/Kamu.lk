@@ -11,11 +11,11 @@
         <div class="header">
             <div class="header-menu">
                 <div ><img src="../assets/images/logo.png" alt="logo" width="125px"></div>
-                <div class="username">Hi Nutritionist</div>
+                <div class="username">Hi <?php echo $_SESSION['loggedin']['username']?></div>
                 <div class="dropdown">
                     <button class="dropbtn"><img  src="../assets/images/user.png" alt="user" width="40px"></button>
                         <div class="dropdown-content">
-                            <a href="my-profile">My Profile</a>
+                            <a href="my-profile?id=<?php echo $_SESSION['loggedin']['user_id'];?>">My Profile</a>
                             <a href="logout">Log Out</a>
                         </div>
                 </div>
@@ -38,8 +38,8 @@
                         <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul class="meal-show">
-                        <li><a href="mealplan-add">Add</a></li>
-                        <li><a href="mealplan-view">View</a></li>
+                        <li><a href="request-list">Request List</a></li>
+                        <li><a href="mealplan-view">Sent List</a></li>
                     </ul>
                 </li>
                 <li>
@@ -51,7 +51,7 @@
                         <li><a href="post-view">View</a></li>
                     </ul>
                 </li>
-                <li><a href="contact-admin">Contact Administrator</a></li>
+                <li><a href="contact-admin?id=<?php echo $_SESSION['loggedin']['user_id'];?>">Contact Administrator</a></li>
            
             </ul>
         </nav>

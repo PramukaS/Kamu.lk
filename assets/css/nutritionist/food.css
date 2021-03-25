@@ -8,6 +8,12 @@
   border-collapse: collapse;
   width: 100%;
 }
+
+.food-view #food1{
+  font-family: 'Open Sans', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
    
 .food-view  tr:hover {background-color:#dbf7d8 ;}
     
