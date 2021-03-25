@@ -13,12 +13,11 @@
 
     <title>View Food Items</title>
     <style>
-        
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 75%;
-            }
+        }
 
         #fooditems {
             font-family: Arial, Helvetica, sans-serif;
@@ -47,7 +46,10 @@
             background-color: black;
             color: white;
         }
-        .button{
+
+        .button {
+            border-radius: 10%;
+            width: 50px;
             padding-top: 12px;
             border-collapse: collapse;
             padding-bottom: 12px;
@@ -56,7 +58,19 @@
             color: white;
 
         }
-        .button1{
+
+        .button1 {
+            padding-top: 12px;
+            border-collapse: collapse;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: black;
+            color: white;
+
+        }
+        .button2 {
+            border-radius: 10%;
+            width: 125px;
             padding-top: 12px;
             border-collapse: collapse;
             padding-bottom: 12px;
@@ -76,19 +90,13 @@
                 <a href="view-order" class="card" id="card1" style="display: block;">
                     <i class="fas fa-sort-amount-up-alt"></i>
                     <div class="container">
-                        <h4><b>Orders</br>3</b></h4>
+                        <h4><b>Orders</br><?php echo $count['count(*)'] ?></b></h4>
                     </div>
                 </a>
                 <a href="view-food-item" class="card" id="card2" style="display: block;">
                     <i class="fas fa-cloud-meatball"></i>
                     <div class=" container">
                         <h4><b>Food Items</br></b></h4>
-                    </div>
-                </a>
-                <a href="order-history" class="card" id="card3" style="display: block;">
-                    <i class="fas fa-history"></i>
-                    <div class="container">
-                        <h4><b>Order Histroy</br></b></h4>
                     </div>
                 </a>
             </div>
@@ -101,35 +109,33 @@
             <table id="fooditems">
                 <tr>
                     <th>Item ID</th>
-                    <!-- <th>Restaurant ID</th> -->
                     <th>Item Name</th>
-                    <th>Description</th>
+                    <!-- <th>Restaurant ID</th> -->
+                    <th >Description</th>
                     <th>Price</th>
+                    <th>Image</th>
                     <!-- <th>Image</th> -->
                 </tr>
-                <?php
-                require_once('../../connect.php');
-                $query = $con->query("SELECT * FROM fooditem");
-                while ($result = $query->fetch_assoc()) {
-                ?>
+                <?php foreach ($data as $item) { ?>
                     <tr>
-                        <td><?php echo $result['Item_id'] ?></td>
-                        <!-- <td><?php echo $result['Res_id'] ?></td> -->
-                        <td><?php echo $result['FName'] ?></td>
-                        <td><?php echo $result['Description'] ?></td>
-                        <td><?php echo $result['price'] ?></td>
-                        <!-- <td><?php echo $result['img'] ?></td> -->
+                      <td><?php echo $item['id'] ?></td>
+                        <td><?php echo $item['item_name'] ?></td>
+                        <td width= 500px><?php echo $item['description'] ?></td>
+                        <td><?php echo "Rs. ", $item['price'] ?></td>
+
+                        <td><img width="50px" height="50px" src="<?php echo "../" . $item['image'] ?>" /></td>
+                        <td> <a href="edit-food-item?id=<?= $item['id'] ?>"><button type="button" class="button">Edit</button></a></td>
                     </tr>
                 <?php }
-                $con->close();
+
                 ?>
-                         <tr>
-                        <td></td>
-                        <td></td>
-                        <td> <a href="edit-food-item"><button type="button" class="button">Edit Food Items</button></a></td>
-                        <td><a href="add-food-item"><button type="button" class="button">Add Food Items</button></a></td>
-                    </tr>
-               
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2"><a href="add-food-item"><button type="button" class="button2">Add Food Items</button></a></td>
+                </tr>
+
             </table>
         </div>
     </div>

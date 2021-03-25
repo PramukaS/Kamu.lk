@@ -7,9 +7,26 @@
         border-collapse: collapse;
         width: 75%;
         }
+        #view_order th {
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
 
         td, th {
         border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr td a {
+        border: 1px solid #dddddd;
+        background-color: grey;
+        text-decoration-color: white;
+        color: black;
         text-align: left;
         padding: 8px;
         }
@@ -77,7 +94,7 @@
                 <a href="view-order" class="card" id="card1" style="display: block;">
                  <i class="fas fa-sort-amount-up-alt"></i>
                     <div class="container">
-                        <h4><b>Orders</br>3</b ></h4>
+                        <h4><b>Orders</br><?php echo $count['count(*)'] ?></b ></h4>
                     </div>
                 </a>
                 <a href="view-food-item" class="card" id="card2" style="display: block;">
@@ -86,89 +103,50 @@
                         <h4><b>Food Items</br></b></h4>
                     </div>
                  </a>
-                <a href="order-history" class="card" id="card3" style="display: block;">
-                    <i class="fas fa-history"></i>
-                    <div class="container">
-                        <h4><b>Order Histroy</br></b></h4>
-                    </div>
-                </a>
             </div>
         </div>
     </div>
     <div class="content">
-        <table>
-            <tr>
-                <th>Order ID</th>
-                <th>Customer Name</th>
-                <th>Contact Number</th>
-                <th>Food</th>
-                <th>Quantity</th>
-                <th>Delivery Type</th>
-                <th>Price(Food+Delivery)</th>
-                <th>Payment Type</th>
-                <th>Assign a Driver</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Mr.Nishantha</td>
-                <td>077-1234567</td>
-                <td>Egg fried rice</td>
-                <td>1</td>
-                <td>Take away</td>
-                <td>350.00+0=350.00</td>
-                <td>Cash</td>
-                <td><button type="button" class="button">-</button></td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Mrs.Perera</td>
-                <td>077-7654321</td>
-                <td>BURGER</td>
-                <td>2</td>
-                <td>Dine-in</td>
-                <td>300.00+0=300.00</td>
-                <td>Card-Payment</td>
-                <td><button type="button" class="button">-</button></td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Mr.Kuruwita</td>
-                <td>077-9637539</td>
-                <td>Chicken fried rice</td>
-                <td>1</td>
-                <td>Deliver</td>
-                <td>350.00+50.00=400.00</td>
-                <td>Cash on Delivery</td>
-                <td><button type="button" class="button">ASSIGN</button></td>
-                <td><button type="button" class="button1">Accept</button><button type="button" class="button2">Reject</button> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button type="button" class="button">Update</button></td>
-            </tr>
+    <table id="view_order">
+                <tr>
+                    <th>Order Id</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Order Status</th>
+                    <th>Order Action</th>
+                    <th colspan="2">Assign a Driver</th>
+                    
+                </tr>
+                <?php foreach ($data as $item) { ?>
+                    <tr>
+                        <td><?php echo $item['id'] ?></td>
+                        <td><?php echo $item['customer_name'] ?></td>
+                        <td><?php echo $item['ddate'] ?></td>
+                        <td><?php echo $item['item_name'] ?></td>
+                        <td><?php echo $item['qty'] ?></td>
+                        <td><?php echo $item['price'] ?></td>
+                        <td><?php echo $item['accepted'] ? 'Accepted' : 'Rejected' ?></td>
+                        <td><a href="accept-order?id=<?= $item['id'] ?>">Accept</a><a href="reject-order?id=<?= $item['id'] ?>">Reject</a></td>
+                        <td>
+                            <form action="assign-driver" method="POST">
+                            <input type="text" hidden name="id" value="<?= $item['id'] ?>">
+                            <select name="driver" id="drivers">
+                                 <option value="" disabled selected hidden>Select a Driver</option>
+                                <?php foreach($drivers as $driver) { ?>
+                                    <option value="<?= $driver['id'] ?>"><?= $driver['username'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <input type="submit" name="Submit" value="Assign">
+                            </form>
+                        </td>
+                        
+                    </tr>
+                <?php }
+
+                ?>
 
             </table>
     </div> 

@@ -163,7 +163,7 @@
                 <a href="view-order" class="card" id="card1" style="display: block;">
                  <i class="fas fa-sort-amount-up-alt"></i>
                     <div class="container">
-                        <h4><b>Orders</br>3</b ></h4>
+                        <h4><b>Orders</br><?php echo $count['count(*)'] ?></b ></h4>
                     </div>
                 </a>
                 <a href="view-food-item" class="card" id="card2" style="display: block;">
@@ -172,12 +172,6 @@
                         <h4><b>Food Items</br></b></h4>
                     </div>
                  </a>
-                <a href="order-history" class="card" id="card3" style="display: block;">
-                    <i class="fas fa-history"></i>
-                    <div class="container">
-                        <h4><b>Order Histroy</br></b></h4>
-                    </div>
-                </a>
             </div>
         </div>
 </div>

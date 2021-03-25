@@ -27,7 +27,6 @@
         <li>Order Details
             <ul style="display: inline;">
                 <li><a href="view-order">View Order details</a></li>
-                <li><a href="order-history">Order History</a></li>
             </ul>
         </li>
         <li><a href="contact-admin">Contact Administrator</a></li>
